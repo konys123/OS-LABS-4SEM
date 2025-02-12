@@ -1,0 +1,10 @@
+#!/bin/bash
+
+ans=""
+s=""
+while [[ "$s" != "q" ]]; do
+	ans="$ans$s"
+	read s
+done
+
+echo "$ans"
