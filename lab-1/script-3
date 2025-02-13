@@ -19,5 +19,5 @@ then "links"
 fi
 
 if [[ "$s" == "4" ]]
-then exit 228
+then exit
 fi
