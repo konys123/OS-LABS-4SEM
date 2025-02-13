@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "1) nano"
+echo "2) vi"
+echo "3) links"
+echo "4) exit"
+
+read s
+if [[ "$s" == "1" ]]
+then "nano"
+fi
