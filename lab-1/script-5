@@ -1,0 +1,6 @@
+#!/bin/bash
+
+read path
+
+grep -w "WARN" "$path" >> "/home/konys/user/labs/lab-1/1.log"
+grep -w "ERROR" "$path" >> "/home/konys/user/labs/lab-1/1.log"

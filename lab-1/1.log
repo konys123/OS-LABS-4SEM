@@ -1,0 +1,22 @@
+2025-02-08T11:07:30.452856+00:00 osi kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+2025-02-08T11:07:30.452857+00:00 osi kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+2025-02-08T11:07:30.452865+00:00 osi kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+2025-02-08T11:42:11.062559+00:00 osi update-manager.desktop[7742]: ERROR:dbus.connection:Exception in handler for D-Bus signal:
+2025-02-08T11:58:18.229194+00:00 osi kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+2025-02-08T11:58:18.229197+00:00 osi kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+2025-02-08T11:58:18.229200+00:00 osi kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+2025-02-08T11:59:05.261951+00:00 osi gnome-shell[1222]: JS ERROR: Gio.IOErrorEnum: Xwayland exited unexpectedly#012@resource:///org/gnome/shell/ui/init.js:21:20
+2025-02-09T18:33:14.332407+03:00 osi kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+2025-02-09T18:33:14.332411+03:00 osi kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+2025-02-09T18:33:14.332415+03:00 osi kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+2025-02-10T20:16:01.650858+03:00 osi gnome-shell[1096]: JS ERROR: Gio.IOErrorEnum: Xwayland exited unexpectedly#012@resource:///org/gnome/shell/ui/init.js:21:20
+2025-02-10T20:19:05.504543+03:00 osi gnome-shell[1093]: JS ERROR: Gio.IOErrorEnum: Xwayland exited unexpectedly#012@resource:///org/gnome/shell/ui/init.js:21:20
+2025-02-11T16:33:46.004221+03:00 osi kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+2025-02-11T16:33:46.004225+03:00 osi kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+2025-02-11T16:33:46.004229+03:00 osi kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+2025-02-11T16:37:53.103137+03:00 osi kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+2025-02-11T16:37:53.103142+03:00 osi kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+2025-02-11T16:37:53.103148+03:00 osi kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+2025-02-11T16:41:43.954907+03:00 osi kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+2025-02-11T16:41:43.954911+03:00 osi kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+2025-02-11T16:41:43.954915+03:00 osi kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
