@@ -1,0 +1,7 @@
+#!/bin/bash
+
+man bash | col -b | \
+grep -oE '\w+' | \
+grep -E '^.{4,}$' | \
+tr '[:upper:]' '[:lower:]' | \
+sort | uniq -c | sort -nr | head -n 3

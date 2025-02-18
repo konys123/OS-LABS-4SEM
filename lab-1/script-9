@@ -1,0 +1,4 @@
+#!/bin/bash
+
+total_lines=$(grep -r '^' /var/log/ --include="*.log" | wc -l)
+echo "Общее количество строк: $total_lines"
