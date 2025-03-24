@@ -10,6 +10,10 @@ for pid in $(ps -eo pid | tail -n +2); do
     		art=$(echo "scale=2; $sum_exec_runtime / $nr_switches" | bc)
 		art=$(printf "%.2f" "$art")
 		
-		echo "${pid}:${ppid}:${art}" >> output_4
+		echo "${pid}:${ppid}:${art}" >> tmp_output_4
 	fi
 done
+
+sort -t':' -k2 -n tmp_output_4 > output_4
+rm tmp_output_4
+
