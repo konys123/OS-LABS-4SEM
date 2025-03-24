@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ps -eo start,pid | sort | tail -n 2 | head -n 1
+ps -eo start,pid | sort -r | head -n 2
