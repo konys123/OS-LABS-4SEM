@@ -8,9 +8,8 @@ for pid in $(ps -eo pid | tail -n +2); do
 		nr_switches=$(grep "nr_switches" "/proc/$pid/sched" | awk '{print $3}' | xargs)
 		
     		art=$(echo "scale=2; $sum_exec_runtime / $nr_switches" | bc)
-		art=$(printf "%.2f" "$art")
-		
-		echo "${pid}:${ppid}:${art}" >> tmp_output_4
+
+		printf "%d:%d:%.2f\n" "$pid" "$ppid" "$art" >> tmp_output_4
 	fi
 done
 
