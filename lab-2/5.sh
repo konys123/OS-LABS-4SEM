@@ -11,20 +11,19 @@ while IFS= read -r line; do
 
     if [[ "$ppid" -eq "$current_ppid" ]]; then
         current_art=$(echo "$current_art + $art" | bc)
-	count=$((count + 1))
+        count=$((count + 1))
     else
-	current_art=$(echo "scale=2; $current_art / $count" | bc)
-        printf "Average running children of parent %d is %.2f\n" "$current_ppid" "$current_art" >> tmp
+        current_art=$(echo "scale=2; $current_art / $count" | bc)
+        printf "Average running children of parent %d is %.2f\n" "$current_ppid" "$current_art" >>tmp
         current_ppid="$ppid"
         current_art="$art"
-	count=1
+        count=1
     fi
 
-    echo "$line" >> tmp
-done < output_4
+    echo "$line" >>tmp
+done <output_4
 
 current_art=$(echo "scale=2; $current_art / $count" | bc)
-printf "Average running children of parent %d is %.2f\n" "$current_ppid" "$current_art" >> tmp
+printf "Average running children of parent %d is %.2f\n" "$current_ppid" "$current_art" >>tmp
 
 mv tmp output_4
-
