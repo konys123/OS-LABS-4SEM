@@ -1,11 +1,11 @@
 #!/bin/bash
 
-declare -A read_bytes
+touch read_bytes
 
 for pid in $(ls /proc | grep '^[0-9]*$'); do
 	if [[ -d "/proc/$pid" ]]; then
 		bytes=$(grep 'read_bytes' /proc/$pid/io | awk '{print $2}')
-		read_bytes[$pid]=$bytes
+		echo "$pid $bytes" >> read_bytes
 	fi
 done
 
@@ -14,10 +14,9 @@ sleep 60
 for pid in $(ls /proc | grep '^[0-9]*$'); do
 	if [[ -d "/proc/$pid" ]]; then
 		bytes=$(grep 'read_bytes' /proc/$pid/io | awk '{print $2}')
-		read_bytes[$pid]=$((bytes - read_bytes[$pid]))
+		old_bytes=$(grep '$pid' read_bytes | awk '{print $2}')
+		bytes_per_minute=$((bytes - old_bytes))
 	fi
 done
 
-for pid in "${!read_bytes[@]}"; do
-	echo "$pid:${read_bytes[$pid]}"
-done | sort -t ":" -k2 -nr | head -n 3
+cat read_bytes | sort -k2 | head -n 3
