@@ -1,2 +1,4 @@
 at now + 2 minutes
 ~/user/labs/lab-3/1.sh
+
+tail -f ~/report

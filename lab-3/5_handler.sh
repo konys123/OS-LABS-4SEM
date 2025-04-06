@@ -12,15 +12,18 @@ while true; do
 		"+")
 			MODE="+"
 			;;
+
 		"*")
 			MODE="*"
 			;;
+
 		"QUIT")
 			echo "planned stop"
 			killall tail
 			killall 5_generator.sh
 			killall 5_handler.sh
 			;;
+
 		+([0-9]))
 			case "$MODE" in
 				"+")
@@ -33,14 +36,17 @@ while true; do
 					;;
 			esac
 			;;
+
 		"")
 			continue
 			;;
+
 		*)
 			echo "input data error"
                         killall tail
                         killall 5_generator.sh
                         killall 5_handler.sh
 			;;
+
 	esac
 done
