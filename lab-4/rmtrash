@@ -1,0 +1,15 @@
+#!/bin/bash
+
+file_name="$1"
+
+
+ls ~ -a | grep ".trash" > /dev/null || mkdir ~/.trash
+
+
+{
+current_number=$(ls ~/.trash | sort -r -n | head -n 1)
+current_number=$(( current_number + 1 ))
+} || current_number=1
+
+ln "$file_name" ~/.trash/"$current_number"
+rm "$file_name"
