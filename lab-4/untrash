@@ -1,0 +1,32 @@
+#!/bin/bash
+
+file_name="$1"
+log="$HOME/.trash.log"
+
+grep -F "$file_name" "$log" | while read -r path num; do
+
+	echo -n "Do you want to untrash '$path'? [y/n]: "
+	read -r ans </dev/tty
+	if [[ "$ans" != y ]]; then
+		continue
+	fi
+
+	dir=$(dirname "$path")
+	if [[ ! -d "$dir" ]]; then
+		echo "Directory '$dir' does not exist — will restore into home."
+		dir="$HOME"
+		path="$dir/$file_name"
+	fi
+
+	if [[ -e "$path" ]]; then
+		echo -n "File exists. Enter new name: "
+		read -r new_name </dev/tty
+		path="$dir/$new_name"
+	fi
+
+	ln "$HOME/.trash/$num" "$path" &&
+	{
+	rm "$HOME/.trash/$num"
+	echo "Restored to '$path'"
+	}
+done
