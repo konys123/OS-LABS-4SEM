@@ -14,8 +14,7 @@ grep -F "$file_name" "$log" | while read -r path num; do
 	dir=$(dirname "$path")
 	if [[ ! -d "$dir" ]]; then
 		echo "Directory '$dir' does not exist — will restore into home."
-		dir="$HOME"
-		path="$dir/$file_name"
+		path="$HOME/$file_name"
 	fi
 
 	if [[ -e "$path" ]]; then
