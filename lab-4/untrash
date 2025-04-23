@@ -5,7 +5,7 @@ log="$HOME/.trash.log"
 
 grep -F "$file_name" "$log" | while read -r path num; do
 
-	echo -n "Do you want to untrash '$path'? [y/n]: "
+	echo -n "Do you want to untrash $path? [y/n]: "
 	read -r ans </dev/tty
 	if [[ "$ans" != y ]]; then
 		continue
@@ -27,6 +27,8 @@ grep -F "$file_name" "$log" | while read -r path num; do
 	ln "$HOME/.trash/$num" "$path" &&
 	{
 	rm "$HOME/.trash/$num"
-	echo "Restored to '$path'"
+	echo "Restored to $path"
+	grep -v "$path $num" "$HOME/.trash.log" > ~/.trash.log.tmp && \
+	mv ~/.trash.log.tmp ~/.trash.log
 	}
 done
