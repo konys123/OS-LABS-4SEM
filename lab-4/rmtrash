@@ -13,3 +13,5 @@ current_number=$(( current_number + 1 ))
 
 ln "$file_name" ~/.trash/"$current_number"
 rm "$file_name"
+
+echo "$(pwd)/$file_name $current_number" >> ~/.trash.log
