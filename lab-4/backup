@@ -1,0 +1,52 @@
+#!/bin/bash
+
+today=$(date +"%Y-%m-%d")
+today_sec=$(date -d "$today" +%s)
+max_backup_date=""
+max_backup_date_sec=0
+
+for dir in $(ls ~/user | grep "Backup-"); do
+	current_backup_date=$(echo "$dir" | awk -F'Backup-' '{print $2}')
+	current_backup_date_sec=$(date -d "$current_backup_date" +%s)
+	if [[ "$current_backup_date_sec" -gt "$max_backup_date_sec" ]]; then
+		max_backup_date="$current_backup_date"
+		max_backup_date_sec="$current_backup_date_sec"
+	fi
+done
+
+source_dir="$HOME/user/source"
+backup_report="$HOME/user/backup-report"
+days_7_sec=604800 #7*24*60*60
+if [[ "$max_backup_date_sec" -eq 0 || $(( today_sec - max_backup_date_sec )) -gt "$days_7_sec" ]]; then
+	backup_dir="$HOME/user/Backup-$today"
+	mkdir -p "$backup_dir"
+	cp -R "$source_dir"/* "$backup_dir"/
+
+	for file in "$backup_dir"/*; do
+		echo "copied $file" >> "$backup_report"
+	done
+else
+	backup_dir="$HOME/user/Backup-$max_backup_date"
+
+	for file in "$source_dir"/*; do
+		file_name=$(basename "$file")
+		backup_file="$backup_dir/$file_name"
+
+		if [[ ! -f "$backup_file" ]]; then
+			cp -R "$file" "$backup_dir/"
+			echo "copied $file_name" >> "$backup_report"
+
+			continue
+		fi
+
+		if [[ $(stat -c%s "$file") -ne $(stat -c%s "$backup_file") ]]; then
+			prev_backup_filename="$backup_file.$today"
+
+			mv "$backup_file" "$prev_backup_filename"
+			cp -R "$file" "$backup_dir/"
+
+			echo "renamed $file_name to $prev_backup_filename" \
+				"and copied $file_name" >> "$backup_report"
+		fi
+	done
+fi
