@@ -1,4 +1,8 @@
 #!/bin/bash
 
 ./mem.bash &
-./mem2.bash &
+
+while true; do
+	top | head -n 12 >> top_output
+	sleep 3
+done
