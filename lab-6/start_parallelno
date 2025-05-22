@@ -1,0 +1,7 @@
+#!/bin/bash
+
+for (( i=0; i<20; i++ )); do
+	/usr/bin/time -f "%e" ./alg1 $(( 500 + i )) &
+done
+
+
