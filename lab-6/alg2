@@ -1,0 +1,19 @@
+#!/bin/bash
+
+file="$1"
+>"$file"
+
+for (( j=0; j<15000; j++ )); do
+	echo "$j" >> "$file"
+done
+
+touch tmp"$file"
+while read num; do
+	(( num * 2 )) >> tmp"$file"
+done < "$file"
+
+while read num; do
+	echo "$num" >> "$i"
+done < tmp"$file"
+
+rm tmp"$file"
